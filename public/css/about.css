@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(/public/img/2bg.png);
+  overflow: hidden;
+}
+
+.contain {
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  background: #222;
+}
+
+.contain .clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.contain .clip.clip1 {
+  background: url(/public/img/allen.jpg);
+  background-size: cover;
+  clip-path: polygon(0 0, 40% 0, 25% 100%, 0 100%);
+}
+
+.contain .clip.clip2 {
+  background: url(/public/img/hack.jpg);
+  background-size: cover;
+  clip-path: polygon(40% 0, 75% 0, 60% 100%, 25% 100%);
+}
+.contain .clip.clip3 {
+  background: url(/public/img/chef.jpg);
+  background-size: cover;
+  clip-path: polygon(75% 0, 100% 0, 100% 100%, 60% 100%);
+}
+
+.contain:hover .clip {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.contain .clip:hover {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.content {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 70%;
+  padding: 20px;
+  background: #fff;
+  transition: 0.5s;
+  opacity: 0;
+}
+.contain .clip:hover .content {
+  bottom: 0;
+  opacity: 1;
+}
+.knob-surround {
+  left: 50%;
+  top: 70%;
+  position: fixed;
+  background-color: grey;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  border: solid 0.25em #0e0e0e;
+  margin: 7em auto;
+  background: #181818;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #1d1d1d),
+    color-stop(1, #131313)
+  );
+  background: -ms-linear-gradient(bottom, #1d1d1d, #131313);
+  background: -moz-linear-gradient(center bottom, #1d1d1d 0%, #131313 100%);
+  background: -o-linear-gradient(#131313, #1d1d1d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#1d1d1d', GradientType=0);
+  -webkit-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+}
+.knob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  z-index: 10;
+}
+.knob:before {
+  content: "";
+  position: absolute;
+  bottom: 19%;
+  left: 19%;
+  width: 5%;
+  height: 5%;
+  background-color: #a8d8f8;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0.4em 0 #79c3f4;
+  -moz-box-shadow: 0 0 0.4em 0 #79c3f4;
+  box-shadow: 0 0 0.4em 0 #79c3f4;
+}
+.knob {
+  background-image: url(/public/img/Webp.net-resizeimage.png);
+  background-position: center;
+}
+.min,
+.max {
+  display: block;
+  font-family: "Varela Round", sans-serif;
+  color: lightgray;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  font-size: 70%;
+  position: absolute;
+  opacity: 0.5;
+}
+.min {
+  bottom: -1em;
+  left: -2.5em;
+}
+.max {
+  bottom: -1em;
+  right: -2.8em;
+}
+.tick {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow: visible;
+}
+.tick:after {
+  content: "";
+  width: 0.08em;
+  height: 0.5em;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  -webkit-transition: all 180ms ease-out;
+  -moz-transition: all 180ms ease-out;
+  -o-transition: all 180ms ease-out;
+  transition: all 180ms ease-out;
+}
+.activetick:after {
+  background-color: #fdfdfd;
+  -webkit-box-shadow: 0 0 0.3em 0.08em #ff0606;
+  -moz-box-shadow: 0 0 0.3em 0.08em #ff0606;
+  box-shadow: 0 0 0.3em 0.08em #ff0606;
+  -webkit-transition: all 50ms ease-in;
+  -moz-transition: all 50ms ease-in;
+  -o-transition: all 50ms ease-in;
+  transition: all 50ms ease-in;
+}
+h1 {
+  font-weight: normal;
+  margin: 2em 0;
+  top: 500px;
+}
+p {
+  line-height: 150%;
+  max-width: 36em;
+  margin: 1em auto;
+}
+a {
+  color: #aaa;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+a:hover,
+a:focus {
+  color: #eee;
+}
+
+#volumeValue {
+  position: absolute;
+  top: 94%;
+  z-index: 10;
+  left: 51.7%;
+}

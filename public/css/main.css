@@ -1,0 +1,337 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+    url(https://fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "Varela Round";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Varela Round Regular"), local("VarelaRound-Regular"),
+    url(https://fonts.gstatic.com/s/varelaround/v13/w8gdH283Tvk__Lua32TysjIfp8uK.ttf)
+      format("truetype");
+}
+body {
+  background-color: #181818;
+  font-size: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #aaa;
+  text-align: center;
+
+}
+.knob-surround {
+  left: 50%;
+  top: 70%;
+  position: fixed;
+  background-color: grey;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  border: solid 0.25em #0e0e0e;
+  margin: 7em auto;
+  background: #181818;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #1d1d1d),
+    color-stop(1, #131313)
+  );
+  background: -ms-linear-gradient(bottom, #1d1d1d, #131313);
+  background: -moz-linear-gradient(center bottom, #1d1d1d 0%, #131313 100%);
+  background: -o-linear-gradient(#131313, #1d1d1d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#1d1d1d', GradientType=0);
+  -webkit-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+    0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+    0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+}
+.knob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  z-index: 10;
+}
+.knob:before {
+  content: "";
+  position: absolute;
+  bottom: 19%;
+  left: 19%;
+  width: 5%;
+  height: 5%;
+  background-color: #a8d8f8;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0.4em 0 #79c3f4;
+  -moz-box-shadow: 0 0 0.4em 0 #79c3f4;
+  box-shadow: 0 0 0.4em 0 #79c3f4;
+}
+.knob {
+  background-image: url(/public/img/Mangekyou_Sharingan_Itachi.svg.png)
+}
+.min,
+.max {
+  display: block;
+  font-family: "Varela Round", sans-serif;
+  color: lightgray;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  font-size: 70%;
+  position: absolute;
+  opacity: 0.5;
+}
+.min {
+  bottom: -1em;
+  left: -2.5em;
+}
+.max {
+  bottom: -1em;
+  right: -2.8em;
+}
+.tick {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow: visible;
+}
+.tick:after {
+  content: "";
+  width: 0.08em;
+  height: 0.5em;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  -webkit-transition: all 180ms ease-out;
+  -moz-transition: all 180ms ease-out;
+  -o-transition: all 180ms ease-out;
+  transition: all 180ms ease-out;
+}
+.activetick:after {
+  background-color: #fdfdfd;
+  -webkit-box-shadow: 0 0 0.3em 0.08em #ff0606;
+  -moz-box-shadow: 0 0 0.3em 0.08em #ff0606;
+  box-shadow: 0 0 0.3em 0.08em #ff0606;
+  -webkit-transition: all 50ms ease-in;
+  -moz-transition: all 50ms ease-in;
+  -o-transition: all 50ms ease-in;
+  transition: all 50ms ease-in;
+}
+h1 {
+  font-weight: normal;
+  margin: 2em 0;
+  top: 500px;
+}
+p {
+  line-height: 150%;
+  max-width: 36em;
+  margin: 1em auto;
+}
+a {
+  color: #aaa;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+a:hover,
+a:focus {
+  color: #eee;
+}
+
+
+
+#volumeValue {
+  position: absolute;
+  top: 94%;
+  z-index: 10;
+  left: 51.7%;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/public/img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  width: 190px;
+  cursor: pointer;
+  position: fixed;
+}
+.navbar {
+  width: 85%;
+  height: 10%;
+  margin: fixed;
+  display: flex;
+  align-items: flex-end;
+
+  justify-content: space-between;
+}
+
+.content {
+  color: black;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: 2;
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 80px;
+  color: black;
+  text-align: center;
+  margin: 13%;
+  margin-right: 10%;
+}
+
+h1 {
+  font-size: 80px;
+  line-height: 80px;
+  color: black;
+  text-align: center;
+  margin: -13%;
+  margin-right: -15%;
+}
+.bird img {
+  width: 150px;
+  height: 100px;
+  animation: birds 10s linear infinite;
+}
+.bird {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 70%;
+}
+
+@keyframes birds {
+  0% {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.button {
+  position: absolute;
+  top: 140%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.button a {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+  border: 3px solid black;
+  padding: 24px 50px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 10px;
+  transition: 0.3s;
+  border-radius: -2px;
+  border-bottom-left-radius: 20px;
+  border-end-start-radius: 50px;
+  border-bottom-style: hidden;
+  border-top-style: hidden;
+  border-start-end-radius: 50px;
+  z-index: 5;
+  
+}
+
+.button:hover a {
+  background: whitesmoke;
+  color: black;
+  transition: 0.5s;
+  border: 2px solid rgb(0, 232, 248);
+  border-bottom-style: hidden;
+  border-top-style: hidden;
+  z-index: 5;
+}
+.loading-screen {
+  position: relative;
+  padding-left: 0;
+  padding-right: -100px;
+  padding-top: 0;
+  background-image: url(/public/img/firefly2.gif);
+  width: 0%;
+  height: 100%;
+}
+
+.load-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#mute {
+  font-size: 50px;
+}

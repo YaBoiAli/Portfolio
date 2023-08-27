@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/interest.css" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <link rel="icon" href="/public/img/Mangekyou_Sharingan_Itachi.svg.png" />
+    <title>Interests</title>
+  </head>
+  <body data-barba="wrapper">
+    <div class="load">
+      <div class="loading"></div>
+    </div>
+    <main data-barba="container" data-barba-namespace="home-section"></main>
+    <h1 class="glow">Hobbies</h1>
+    <style>
+      body {
+        background-color: black;
+        font-family: cursive;
+      }
+
+      .glow {
+        font-size: 40px;
+        margin-bottom: 40%;
+        margin-top: 0%;
+        color: black;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+
+      @-webkit-keyframes glow {
+        from {
+          text-shadow: 0 0 10px white, 0 0 20px #fff, 0 0 30px #a600ff,
+            0 0 40px #a600ff, 0 0 50px #a600ff, 0 0 60px #a600ff,
+            0 0 70px #a600ff;
+        }
+
+        to {
+          text-shadow: 0 0 20px white, 0 0 30px #f700ff, 0 0 40px #f700ff,
+            0 0 50px #f700ff, 0 0 60px #f700ff, 0 0 70px #f700ff,
+            0 0 80px #f700ff;
+        }
+      }
+    </style>
+    <div class="contain">
+      <div class="clip clip1">
+        <div class="content">
+          <h2>Basketball</h2>
+          <p>
+            Personally, a huge fan of basketball, I barely watch the NBA since
+            im more of a player, I played in my middle schoo-l team and plan on
+            playing for varsity in 2021-2022 school year. I been praticing ball
+            for roughly 5 to 6 years. I dont really plan on expanding in this
+            skill, since im more into coding then basketball.
+          </p>
+        </div>
+      </div>
+      <div class="clip clip2">
+        <div class="content">
+          <h2>Programming</h2>
+          <p>
+            I decided to become an ethical hacker when I was in my middle school
+            years, but after I took a class of python I switched to software
+            engineering. I loved the concept of it being clean and all the cool
+            stuff you could do with it. Hacking was more like boring, because
+            you cant really "SEE" what your program is actully doing. But still
+            I leanred hacking with kali linux for about a week or so. I decided
+            to put most of my time in coding and making projects. I code about 5
+            to 6 hours a day.
+          </p>
+        </div>
+      </div>
+      <div class="clip clip3">
+        <div class="content">
+          <h2>Cooking</h2>
+          <p>
+            My favorite hobby is cooking. I started when I was in middle school just for fun.
+            After cooking some simple dishes. I fell in love with cooking too. 
+            I started putting alot of my time creating my own recipes, as well as 
+            copying others to learn. I only follow one chef, which is Vikas Khanna
+            who is one of the best indian chef.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div title="Rotate to play" id="player">
+      <p title="Rotate to play" id="value">
+        <span title="Rotate to play" id="volumeValue" class="current-value"
+          >0%</span
+        >
+      </p>
+      <div title="Rotate to play" class="knob-surround">
+        <div title="Rotate to play" id="knob" class="knob"></div>
+
+        <span title="Rotate to play" class="min">Min</span>
+        <span title="Rotate to play" class="max">Max</span>
+
+        <div id="tickContainer" class="ticks"></div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+  <script src="/public/js/interest.js"></script>
+</html>
